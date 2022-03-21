@@ -1,5 +1,5 @@
 <p align="left">
-  <img height="150" src="./logo.svg" />
+  <img height="150" src="../logo.svg" />
 </p>
 
 # CHALLENGE BACKEND - NodeJs
