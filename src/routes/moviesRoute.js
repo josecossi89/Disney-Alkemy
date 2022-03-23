@@ -1,26 +1,24 @@
 const express = require("express");
-//const { getCharactersDb } = require("../controller/controller.js");
-const { Character, Movie, Gender } = require("../db.js");
-
+const { Character, Movie, Gender } = require("../db");
 const router = express.Router();
 
-//Get all characters
+//Get all movies or Series
 router.get("/", async (req, res) => {
   try {
-    const characters = await Character.findAll({
-      attributes: ["photo", "name"],
+    const movieOrSerie = await Movie.findAll({
+      attributes: ["photo", "title", "date"],
     });
-    res.status(200).json(characters);
-    console.log(characters);
+    res.status(200).json(movieOrSerie);
+    console.log(movieOrSerie);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "This is one big problem" });
   }
 });
 
-//Create new character
+//Create new Movie or Serie
 router.post("/", async (req, res) => {
-  const { photo, name, age, weight, history, movieOrSerie } = req.body;
+  const { photo, name, title, weight, history, movieOrSerie } = req.body;
   try {
     const [character] = await Character.findOrCreate({
       where: {
