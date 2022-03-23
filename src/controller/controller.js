@@ -1,4 +1,4 @@
-var axios = require("axios").default;
+// var axios = require("axios").default;
 const { Character, Movie, Gender } = require("../db.js");
 
 const getCharactersDb = async () => {

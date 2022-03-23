@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
     },
     photo: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: true,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -20,18 +20,15 @@ module.exports = (sequelize) => {
     },
     age: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     weight: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     history: {
       type: DataTypes.STRING,
-      allowNull: true,
-    },
-    movieOrSeries: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
     },
   });
 };
