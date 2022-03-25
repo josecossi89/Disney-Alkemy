@@ -12,19 +12,19 @@ module.exports = (sequelize) => {
     },
     photo: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+      allowNull: true,
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     date: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     ratting: {
       type: DataTypes.ENUM("1", "2", "3", "4", "5"),
-      allowNull: false,
+      allowNull: true,
     },
     character: {
       type: DataTypes.ARRAY(DataTypes.STRING),
