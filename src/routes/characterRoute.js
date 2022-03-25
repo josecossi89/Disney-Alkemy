@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 
 //Create new character
 router.post("/", async (req, res) => {
-  const { photo, name, age, weight, history, moviesSeries } = req.body;
+  const { photo, name, age, weight, history, movieId } = req.body;
   try {
     const [character] = await Character.findOrCreate({
       where: {
@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
         history,
       },
     });
-    await character.addMovies(moviesSeries);
+    await character.addMovies(movieId);
     res.status(200).json("Character created successfully");
   } catch (error) {
     console.log(error);
