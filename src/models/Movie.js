@@ -22,8 +22,12 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    rating: {
+    ratting: {
       type: DataTypes.ENUM("1", "2", "3", "4", "5"),
+      allowNull: false,
+    },
+    characters: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
   });

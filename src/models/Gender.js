@@ -20,6 +20,7 @@ module.exports = (sequelize) => {
     },
     movieOrSeries: {
       type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
     },
   });
 };
