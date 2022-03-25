@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 
 //Create new character
 router.post("/", async (req, res) => {
-  const { photo, name, age, weight, history, movieId } = req.body;
+  const { photo, name, age, weight, history } = req.body;
   try {
     const [character] = await Character.findOrCreate({
       where: {
@@ -31,8 +31,38 @@ router.post("/", async (req, res) => {
         history,
       },
     });
+    // await character.addMovies(movieId);
+    res
+      .status(200)
+      .json({ message: "Character created successfully", data: character });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "This is one big problem" });
+  }
+});
+
+router.post("/:id/add-movie/:movieId", async (req, res) => {
+  try {
+    const { movieId, id } = req.params;
+    const character = await Character.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!character) {
+      return res
+        .status(404)
+        .json({ message: "This character does not exist." });
+    }
     await character.addMovies(movieId);
-    res.status(200).json("Character created successfully");
+
+    // const [movie] = await characters_movies.findOrCreate({
+    //   where: {
+    //     movieId,
+    //     id,
+    //   },
+    // });
+    return res.send("todo fino");
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "This is one big problem" });
