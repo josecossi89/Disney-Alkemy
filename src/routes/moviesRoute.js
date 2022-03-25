@@ -29,7 +29,7 @@ router.post("/", async (req, res) => {
       },
     });
     await movieOrSerie.addCharacters(characterId);
-    res.status(200).json("Character created successfully");
+    res.status(200).json("Movie-Serie created successfully");
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "This is one big problem" });
