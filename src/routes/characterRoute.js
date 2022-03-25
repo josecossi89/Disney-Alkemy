@@ -22,13 +22,14 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const { photo, name, age, weight, history, movieId } = req.body;
   try {
-    const [character] = await Character.findOrCreate({
+    const character = await Character.findOrCreate({
       where: {
         photo,
         name,
         age,
         weight,
         history,
+        movieId,
       },
     });
     await character.addMovies(movieId);

@@ -26,9 +26,9 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM("1", "2", "3", "4", "5"),
       allowNull: false,
     },
-    // character: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   allowNull: true,
-    // },
+    character: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+    },
   });
 };

@@ -30,9 +30,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // moviesSeries: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   allowNull: false,
-    // },
+    moviesSeries: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    },
   });
 };
