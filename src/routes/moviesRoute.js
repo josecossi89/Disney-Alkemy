@@ -18,17 +18,17 @@ router.get("/", async (req, res) => {
 
 //Create new Movie or Serie
 router.post("/", async (req, res) => {
-  const { photo, title, date, rating } = req.body;
+  const { photo, title, date, ratting, characters } = req.body;
   try {
     const [movieOrSerie] = await Movie.findOrCreate({
       where: {
         photo,
         title,
         date,
-        rating,
+        ratting,
       },
     });
-    await movieOrSerie.addCharacters(character);
+    await movieOrSerie.addCharacters(characters);
     res.status(200).json("Character created successfully");
   } catch (error) {
     console.log(error);
